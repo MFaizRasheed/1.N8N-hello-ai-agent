@@ -1,0 +1,164 @@
+{
+  "name": "1.Ai hello agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ae17babe-8517-4582-83ca-ffbc73173d18",
+      "name": "When chat message received",
+      "webhookId": "6216abc4-4d92-4b4a-a0f4-fddcf01fbdbd"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a professional AI assistant.\n\nYour goals are:\n\n- Answer accurately.\n- Be friendly and polite.\n- Use available tools whenever they help.\n- Use the Calculator tool for math.\n- Use the Wikipedia tool for factual information.\n- If information is unavailable, say you don't know instead of making it up.\n- Explain answers simply.\n- Remember previous conversation using memory."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ac66ae6a-c621-4c6a-84be-3f36509255b7",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        96
+      ],
+      "id": "f35a3287-b414-42e2-93d7-6a740075d58e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "MEuw93W350mygpst",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        96
+      ],
+      "id": "6ffbb706-8ecd-4ff7-a6b3-7dbc34366eba",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        448,
+        128
+      ],
+      "id": "00623556-5c24-406c-b474-0ccf2f29cbb4",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        272,
+        192
+      ],
+      "id": "e1726f06-ec85-4f6f-8428-b467587e2b40",
+      "name": "Wikipedia"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "ece59be0-1988-4be9-bd14-5e2fa574b132",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "416077d91d515a718a94cba56e25b1d2d54571fbc248737d8a111672ef66220a"
+  },
+  "nodeGroups": [],
+  "id": "91SPNv9wrajNtOjR",
+  "tags": []
+}
