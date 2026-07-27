@@ -1,0 +1,91 @@
+AI Chatbot Workflow Concepts
+
+1. What is an AI Agent?
+
+An AI Agent is the central component of an AI workflow. It receives the
+user’s input, decides what action to take, communicates with the AI
+model, uses tools (if available), accesses memory, and returns the final
+response. Think of the AI Agent as the manager that coordinates all
+parts of the workflow.
+
+Example workflow:
+
+User → Chat Trigger → AI Agent → AI Model / Tools / Memory → Response
+
+------------------------------------------------------------------------
+
+2. What does the AI Model do?
+
+The AI Model is the intelligence or “brain” of the chatbot. It
+understands the user’s message, interprets its meaning, and generates a
+response. Examples of AI models include GPT-4.1, GPT-5, Gemini, Claude,
+and Llama.
+
+The AI Model: - Understands natural language. - Generates human-like
+responses. - Answers questions. - Summarizes text. - Explains
+concepts. - Follows instructions from the System Prompt.
+
+------------------------------------------------------------------------
+
+3. What does a System Prompt do?
+
+A System Prompt is a hidden set of instructions given to the AI before
+the conversation begins. It defines the assistant’s personality,
+behavior, tone, and rules.
+
+Examples:
+
+Friendly Assistant: “You are a friendly AI assistant. Be polite,
+helpful, and explain concepts clearly.”
+
+Direct Assistant: “You are a direct assistant. Keep responses short and
+avoid unnecessary details.”
+
+Changing the System Prompt changes how the AI responds, even when the
+user’s question stays the same.
+
+------------------------------------------------------------------------
+
+4. What does Simple Memory do?
+
+Simple Memory stores previous messages in the current conversation. This
+allows the AI to remember context and answer follow-up questions more
+naturally.
+
+Example:
+
+User: My name is Faiz. AI: Nice to meet you, Faiz.
+
+User: What is my name? AI: Your name is Faiz.
+
+Without memory, the AI would not remember the earlier message.
+
+------------------------------------------------------------------------
+
+5. How changing the System Prompt changes AI behavior
+
+The System Prompt influences the AI’s personality and communication
+style.
+
+Example Question: “What is Python?”
+
+Friendly Prompt Response: “Python is a beginner-friendly programming
+language used in web development, AI, automation, and data science. I’d
+be happy to show you an example!”
+
+Direct Prompt Response: “Python is a programming language used for many
+applications.”
+
+The AI model is the same in both cases. Only the System Prompt changes,
+so the behavior and tone change as well.
+
+------------------------------------------------------------------------
+
+Summary
+
+-   AI Agent: Coordinates the workflow and decides how to respond.
+-   AI Model: Understands the user’s request and generates responses.
+-   System Prompt: Defines the AI’s behavior, tone, and rules.
+-   Simple Memory: Remembers previous conversation context.
+-   Changing the System Prompt changes the chatbot’s personality without
+    changing the AI model.
